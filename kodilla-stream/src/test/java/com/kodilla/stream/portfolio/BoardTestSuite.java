@@ -145,16 +145,16 @@ public class BoardTestSuite {
         //When
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
-        List<Task> tasks = project.getTaskLists().stream()
+        double avg = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .filter(t -> t.getCreated().isBefore(LocalDate.now()))
-                .collect(toList());
+                .mapToDouble( t -> t.getCreated().until(LocalDate.now(),ChronoUnit.DAYS))
+                .average().getAsDouble();
 
-        OptionalDouble avg = IntStream.range(0, tasks.size())
-                .map(n -> LocalDate.now().toEpochDay() - tasks.get(n).getCreated().toEpochDay())
-                .average();
+//        OptionalDouble avg = IntStream.range(0, tasks.size())
+//                .map(n -> LocalDate.now().toEpochDay() - tasks.get(n).getCreated().toEpochDay())
+//                .average();
         //Then
-        Assert.assertEquals(java.util.Optional.of(-10), avg);
+        Assert.assertEquals(10, avg,0);
     }
 }
