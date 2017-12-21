@@ -24,7 +24,7 @@ public class FirstChallenge {
             System.out.println("Do not divide by 0");
         }
         finally {
-            System.out.println("");
+            System.out.println("finally");
         }
 
     }
