@@ -1,3 +1,4 @@
+
 package com.kodilla.exception.test;
 
 public class ExceptionHandling {
@@ -7,7 +8,7 @@ public class ExceptionHandling {
             System.out.println(secondChallenge.probablyIWillThrowException(1.5,4.2));
         }
         catch (Exception e){
-            System.out.println("Values should be diffrent than  x >= 2 || x < 1 || y == 1.5");
+            System.out.println("Values should be di ffrent than  x >= 2 || x < 1 || y == 1.5");
         }
     }
 }
