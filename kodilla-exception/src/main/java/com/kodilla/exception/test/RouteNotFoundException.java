@@ -1,3 +1,4 @@
+
 package com.kodilla.exception.test;
 
 public class RouteNotFoundException extends Exception {
@@ -5,3 +6,5 @@ public class RouteNotFoundException extends Exception {
         super(message);
     }
 }
+
+

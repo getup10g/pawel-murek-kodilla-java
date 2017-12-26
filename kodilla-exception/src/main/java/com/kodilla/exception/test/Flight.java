@@ -1,3 +1,4 @@
+
 package com.kodilla.exception.test;
 
 public class Flight {
@@ -18,3 +19,4 @@ public class Flight {
         return arrivalAirport;
     }
 }
+
