@@ -1,3 +1,4 @@
+
 package com.kodilla.exception.test;
 
 public class FirstChallenge {
@@ -9,10 +10,6 @@ public class FirstChallenge {
         return a / b;
     }
 
-    /**
-     * This main can throw an ArithmeticException!!!
-     * @param args
-     */
     public static void main(String[] args) {
 
         FirstChallenge firstChallenge = new FirstChallenge();
