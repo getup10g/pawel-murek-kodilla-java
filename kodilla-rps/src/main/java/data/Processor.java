@@ -5,7 +5,7 @@ public class Processor {
     private int pcChoice;
     private int pcScore;
     private int userScore;
-    private int fightResult;
+    
 
     public int getUserChoice() {
         return userChoice;
@@ -23,9 +23,6 @@ public class Processor {
         return userScore;
     }
 
-    public int getFightResult() {
-        return fightResult;
-    }
 
     public void setUserChoice(int userChoice) {
         this.userChoice = userChoice;
@@ -43,9 +40,6 @@ public class Processor {
         this.userScore = userScore;
     }
 
-    public void setFightResult(int fightResult) {
-        this.fightResult = fightResult;
-    }
 
     public int playGame() {
         UserChoice userChoice = new UserChoice();

@@ -3,6 +3,7 @@ package data;
 public class BattleResult extends Processor {
     public void printStats(){
         //Same choices
+        System.out.println("user choice: "+getUserChoice()+" pc choice: "+getPcChoice() );
         if(getUserChoice()==getPcChoice()){
             System.out.println("The same choices");
         }

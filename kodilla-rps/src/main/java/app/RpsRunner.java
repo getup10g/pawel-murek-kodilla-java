@@ -1,7 +1,6 @@
 package app;
 
 import data.Intro;
-import data.MenuOfChoice;
 import data.Processor;
 
 public class RpsRunner {
