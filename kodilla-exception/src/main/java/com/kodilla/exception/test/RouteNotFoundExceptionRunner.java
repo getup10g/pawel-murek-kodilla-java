@@ -1,4 +1,3 @@
-
 package com.kodilla.exception.test;
 
 public class RouteNotFoundExceptionRunner {
@@ -18,4 +17,3 @@ public class RouteNotFoundExceptionRunner {
         }
     }
 }
-

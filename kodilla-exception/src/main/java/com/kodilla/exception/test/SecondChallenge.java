@@ -1,4 +1,3 @@
-
 package com.kodilla.exception.test;
 
 public class SecondChallenge {
@@ -9,4 +8,3 @@ public class SecondChallenge {
         return "Done!";
     }
 }
-
