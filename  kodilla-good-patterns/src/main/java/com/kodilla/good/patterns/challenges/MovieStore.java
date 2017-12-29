@@ -2,7 +2,6 @@ package com.kodilla.good.patterns.challenges;
 
 import java.util.*;
 
-import java.util.stream.*;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -31,14 +30,16 @@ class MovieStore {
         return booksTitlesWithTranslations;
     }
 
-    static public void iterateUsingStreamAPI(Map<String, List<String>> map) {
-        map.entrySet().stream()
-                .forEach(e -> System.out.println(e.getKey() + ":" + e.getValue()));
-    }
-
     public static void main(String[] args) {
         MovieStore movieStore = new MovieStore();
-        iterateUsingStreamAPI(movieStore.getMovies());
+
+        String theResult = movieStore.getMovies().entrySet().stream()
+                .flatMap(e -> e.getValue().stream())
+                .collect(Collectors.joining("!"));
+
+        System.out.println(theResult);
+
+
 
     }
 }
