@@ -1,16 +1,16 @@
 package com.kodilla.good.patterns.challenges.productOrderService;
 
-public class User {
+public class User implements Customer {
     private String firstname;
     private String lastname;
     private String adress;
     private String id;
 
-    public User(String firstname, String lastname, String adress, String id) {
+    public User(String firstname, String lastname, String adress) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.adress = adress;
-        this.id = id;
+
     }
 
     public String getFirstname() {
@@ -25,9 +25,7 @@ public class User {
         return adress;
     }
 
-    public String getId() {
-        return id;
-    }
+
 
     @Override
     public boolean equals(Object o) {
