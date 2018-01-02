@@ -21,6 +21,7 @@ public class GlutenFreeShop {
     public boolean process(ArrayList<Product> orderList){
         for (Product product:orderList){
             if(true!=availableProducts.contains(product)){
+                System.out.println("Sorry, we can't deliver your order");
                 return false;
             }
         }

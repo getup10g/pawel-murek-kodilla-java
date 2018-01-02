@@ -24,6 +24,7 @@ public class ExtraFoodShop implements Manufacturer {
                 return false;
             }
         }
+        System.out.println("Thank You!");
         return true;
     }
 }

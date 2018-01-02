@@ -18,13 +18,15 @@ public class OrderProducts {
             ++i;
         }
     }
+
     public void addToOrderList(int number) {
+        number--;
         orderList.add(manufacturer.returnProduct(number));
     }
 
-    public void getOrderList() {
+    public void printOrderList() {
+        int i=1;
         for (Product product : orderList) {
-            int i=1;
             System.out.println(i+": "+product);
             ++i;
         }

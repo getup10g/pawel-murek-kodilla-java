@@ -5,8 +5,10 @@ public class Food2Door {
         ExtraFoodShop extraFoodShop = new ExtraFoodShop();
         OrderProducts orderExtraFoodShop = new OrderProducts(extraFoodShop);
         orderExtraFoodShop.previewOfManufacture();
+
         orderExtraFoodShop.addToOrderList(1);
-        orderExtraFoodShop.getOrderList();
+        orderExtraFoodShop.addToOrderList(2);
+        orderExtraFoodShop.printOrderList();
         orderExtraFoodShop.makeOrder();
     }
 }
