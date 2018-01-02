@@ -8,8 +8,8 @@ public class PcShot {
 
 
     public int Fight(int userShot) {
-        int shot = randomShot.nextInt(4);
-        if (shot > 2) {
+        int shot = randomShot.nextInt(3);
+        if (shot > 1) {
             switch (userShot) {
                 case 1:
                     return 2;

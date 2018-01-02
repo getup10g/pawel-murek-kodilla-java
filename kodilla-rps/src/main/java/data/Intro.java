@@ -22,12 +22,12 @@ public class Intro {
                 System.out.println(getDashedLine());
             case 1:
                 System.out.println(getDashedLine());
-                System.out.println("    YOU WIN ");
+                System.out.println("    YOU WON ");
                 System.out.println(getDashedLine());
                 break;
             case 2:
                 System.out.println(getDashedLine());
-                System.out.println("     PC WIN ");
+                System.out.println("     PC WON ");
                 System.out.println(getDashedLine());
         }
     }

@@ -11,14 +11,14 @@ public class UserChoice extends Processor{
     }
     public void choosePaper(){
         setPcChoice(pcShot.Fight(2));
-        if(getPcChoice()==2){
+        if(getPcChoice()==3){
             System.out.println("You lose battle");
             setPcScore(getPcScore()+1);
         }
     }
     public void chooseScissors(){
         setPcChoice(pcShot.Fight(3));
-        if(getPcChoice()==2){
+        if(getPcChoice()==1){
             System.out.println("You lose battle");
             setPcScore(getPcScore()+1);
         }

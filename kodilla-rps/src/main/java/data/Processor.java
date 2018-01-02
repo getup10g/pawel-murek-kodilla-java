@@ -1,10 +1,10 @@
 package data;
 
 public class Processor {
-    private int userChoice;
-    private int pcChoice;
-    private int pcScore;
-    private int userScore;
+    protected static int userChoice;
+    protected static int pcChoice;
+    protected static int pcScore;
+    protected static int userScore;
     
 
     public int getUserChoice() {
