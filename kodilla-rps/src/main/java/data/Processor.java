@@ -46,11 +46,9 @@ public class Processor {
         MenuOfChoice menuOfChoice = new MenuOfChoice();
         BattleResult battleResult = new BattleResult();
 
-        // mainly loop of game
-        while (getUserChoice() != 4) {  // 4 = definitely end
-            setUserChoice(menuOfChoice.makeChoice());  // User makes choice
+        while (getUserChoice() != 4) {
+            setUserChoice(menuOfChoice.makeChoice());
             switch (getUserChoice()) {
-                // pc gets information about user choice and print result of battle
                 case 1:
                     userChoice.chooseRock();
                     break;
@@ -61,28 +59,23 @@ public class Processor {
                     userChoice.chooseScissors();
                     break;
                 case 6:
-                    //user is not sure, repeating of choosing
                     while (getUserChoice() == 6) {
                         setUserChoice(menuOfChoice.makeChoice());
                     }
                     break;
                 case 5:
-                    //user wants repeat game, reset stats
                     userChoice.chooseRepeat();
                     break;
             }
-            //Stats
-            battleResult.printStats();
-        } //end of loop while
-
-            // send game score
-            if (getPcScore() > getUserScore()) {
-                return 2;
-            }
-            if (getPcScore() < getUserScore()) {
-                return 1;
-            }
-            return 0;
+            battleResult.printWarStats();
+        }
+        if (getPcScore() > getUserScore()) {
+            return 2;
+        }
+        if (getPcScore() < getUserScore()) {
+            return 1;
+        }
+        return 0;
     }
 }
 

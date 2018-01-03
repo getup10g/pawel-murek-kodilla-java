@@ -3,11 +3,9 @@ package data;
 import java.util.Random;
 
 public class PcShot {
-    Random randomShot = new Random();
-    Random randomDecision = new Random(3);
-
 
     public int Fight(int userShot) {
+        Random randomShot = new Random();
         int shot = randomShot.nextInt(3);
         if (shot > 1) {
             switch (userShot) {
