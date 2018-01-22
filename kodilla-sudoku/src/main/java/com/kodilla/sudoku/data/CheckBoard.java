@@ -32,7 +32,7 @@ public class CheckBoard {
                     blocks[1].getPossibleValues().add(value);
                 }
             }
-            if (x > 2 && x <= 8 && y <= 2) {
+            if (x > 5 && x <= 8 && y <= 2) {
                 if (blocks[2].getPossibleValues().contains(value)) {
                     isValueRepeated = true;
                 }else {
@@ -67,14 +67,14 @@ public class CheckBoard {
                     blocks[6].getPossibleValues().add(value);
                 }
             }
-            if (x <= 2 && x < 5 && y <= 8 && y > 5) {
+            if (x > 2 && x <= 5 && y <= 8 && y > 5) {
                 if (blocks[7].getPossibleValues().contains(value)) {
                     isValueRepeated = true;
                 }else {
                     blocks[7].getPossibleValues().add(value);
                 }
             }
-            if (x < 5 && x <= 8 && y <= 8 && y > 5) {
+            if (x > 5 && x <= 8 && y <= 8 && y > 5) {
                 if (blocks[8].getPossibleValues().contains(value)) {
                     isValueRepeated = true;
                 }else {
