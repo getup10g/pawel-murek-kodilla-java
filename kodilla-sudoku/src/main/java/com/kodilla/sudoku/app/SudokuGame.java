@@ -1,6 +1,7 @@
 package com.kodilla.sudoku.app;
 
 import com.kodilla.sudoku.data.Board;
+import com.kodilla.sudoku.data.FillingBoard;
 import com.kodilla.sudoku.data.Menu;
 
 import static com.kodilla.sudoku.data.Text.getLOGO;
@@ -20,13 +21,11 @@ public class SudokuGame {
     private boolean resolveSudoku() {
         Menu menu = new Menu();
         Board board = new Board();
-
+        FillingBoard fillingBoard = new FillingBoard();
         while (getUserChoice() != 0) {
             //menu.makeChoice();
+            fillingBoard.randomFilling(7);
             System.out.println(board.toString());
-            board.randomFilling();
-            System.out.println(board.toString());
-
             switch (getUserChoice()) {
                 case 1:
 
