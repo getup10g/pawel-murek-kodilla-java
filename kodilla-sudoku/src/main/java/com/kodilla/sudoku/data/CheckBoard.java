@@ -55,7 +55,7 @@ public class CheckBoard {
     public boolean checkBoardSetValue(int x,int y,int value){
         isValueRepeated=true;
         boolean isPositionEmpty=getBoard()[y].getSudokuElements().get(x).getValue()==-1;
-        //isPositionEmpty=true; //cheatmode
+        isPositionEmpty=true; //cheatmode
         if(isPositionEmpty) {
             isValueRepeated=false;
             if(!checkLevel(y,value)) {

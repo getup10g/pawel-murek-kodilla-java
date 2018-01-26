@@ -57,36 +57,36 @@ public class FillingBoard {
                                 }
                             }
                         }
-                        if (isRepeated) {
-                            counter++;
-                            System.out.println("y " + numberOfLine + " x " + numberOfColumne + "counter " + counter + " linia " + numberOfLine + " secondcounter " + secondCounter + " value " + randomValue + " numbersInLine: " + checkBoard.checkLine(numberOfLine));
-                        }
-                        if (checkBoard.checkLine(numberOfLine) == number) {
-                            break levelsLoop;
-                        }
+
                     }
-                }
-                if (counter > 1000) {
-                    for (int b = 0; b < 9; b++) {
-                        checkBoard.setValue(b, numberOfLine, -1);
+                    if (isRepeated) {
+                        counter++;
+                        System.out.println("y " + numberOfLine + " x " + numberOfColumne + "counter " + counter + " linia " + numberOfLine + " secondcounter " + secondCounter + " value " + randomValue + " numbersInLine: " + checkBoard.checkLine(numberOfLine));
                     }
-                    counter = 0;
-                    secondCounter++;
-                }
-                if (secondCounter > 1000) {
-                    if (numberOfLine > 0) {
-                        numberOfLine--;
+                    if (checkBoard.checkLine(numberOfLine) == number) {
+                        break levelsLoop;
+                    }
+                    if (counter > 500) {
                         for (int b = 0; b < 9; b++) {
-                            for (int z = 0; z < 9; z++) {
-                                checkBoard.setValue(b, z, -1);
+                            checkBoard.setValue(b, numberOfLine, -1);
+                        }
+                        counter = 0;
+                        secondCounter++;
+                    }
+                    if (secondCounter > 500) {
+                        if (numberOfLine > 0) {
+                            numberOfLine--;
+                            for (int b = 0; b < 9; b++) {
+                                checkBoard.setValue(b, numberOfLine, -1);
                             }
                         }
+                        counter = 0;
+                        secondCounter = 0;
                     }
-                    counter = 0;
-                    secondCounter++;
-                }
-                if (secondCounter > 2000) {
+                   /* if (secondCounter > 2000) {
                         break linesloop;
+                    }*/
+
                 }
                 }
             }
