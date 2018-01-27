@@ -4,10 +4,21 @@ import com.kodilla.sudoku.data.Board;
 import com.kodilla.sudoku.data.FillingBoard;
 import com.kodilla.sudoku.data.Menu;
 
+import java.util.ArrayList;
+
 import static com.kodilla.sudoku.data.Text.getLOGO;
 
 public class SudokuGame {
-    protected static int userChoice=2;
+    protected static int userChoice=1;
+    protected static ArrayList<Integer> shoot;
+
+    public static ArrayList<Integer> getShoot() {
+        return shoot;
+    }
+
+    public static void setShoot(ArrayList<Integer> shoot) {
+        SudokuGame.shoot = shoot;
+    }
 
     public static void setUserChoice(int userChoice) {
         SudokuGame.userChoice = userChoice;
@@ -22,33 +33,37 @@ public class SudokuGame {
         Menu menu = new Menu();
         Board board = new Board();
         FillingBoard fillingBoard = new FillingBoard();
+        boolean result=true;
+
+        menu.makeChoice();
         while (getUserChoice() != 0) {
-            //menu.makeChoice();
-            fillingBoard.randomFilling(8);
-            System.out.println(board.toString());
+
             switch (getUserChoice()) {
+                case 0:
+                    return true;
                 case 1:
+                    fillingBoard.resetBoard();
+                    setUserChoice(2);
                     break;
                 case 2:
                     while (getUserChoice() == 2) {
+                        System.out.println(board.toString());
                         menu.makeChoice();
                     }
                     break;
                 case 3:
-
-                case 6:
-
+                    fillingBoard.randomFilling(9);
+                    setUserChoice(2);
                     break;
-                case 5:
-
-                    break;
+                default:
+                    boolean isSucces=fillingBoard.fillBoard(getShoot());
+                    setUserChoice(2);
             }
         }
-        return false;
-
+        return result;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         System.out.println(getLOGO());
         boolean gameFinished = false;
         while(!gameFinished) {

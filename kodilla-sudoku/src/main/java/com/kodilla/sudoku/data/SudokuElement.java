@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SudokuElement {
-    private int value =-1;
 
+    private int value =-1;
 
     public int getValue() {
         return value;
