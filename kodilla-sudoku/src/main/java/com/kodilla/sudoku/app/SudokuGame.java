@@ -24,11 +24,10 @@ public class SudokuGame {
         FillingBoard fillingBoard = new FillingBoard();
         while (getUserChoice() != 0) {
             //menu.makeChoice();
-            fillingBoard.randomFilling(7);
+            fillingBoard.randomFilling(8);
             System.out.println(board.toString());
             switch (getUserChoice()) {
                 case 1:
-
                     break;
                 case 2:
                     while (getUserChoice() == 2) {

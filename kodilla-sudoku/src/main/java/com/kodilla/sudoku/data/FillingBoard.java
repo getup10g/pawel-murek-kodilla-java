@@ -3,9 +3,7 @@ package com.kodilla.sudoku.data;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static com.kodilla.sudoku.data.Board.board;
-import static com.kodilla.sudoku.data.Board.getBlocks;
-import static com.kodilla.sudoku.data.Board.getBoard;
+import static com.kodilla.sudoku.data.Board.*;
 import static java.util.Arrays.asList;
 
 public class FillingBoard {
@@ -24,74 +22,97 @@ public class FillingBoard {
     }
 
     public void randomFilling(int number) {
+        System.out.println("wait filling in progress");
         boolean isRepeated = false;
-
+        int secondCounter = 0;
         linesloop:
         for (int numberOfLine = 0; numberOfLine < 9; numberOfLine++) {
             int counter = 0;
-            int secondCounter = 0;
 
-            ArrayList list = new ArrayList(asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+            int thirdCounter=0;
 
             levelsLoop:
-            while (checkBoard.checkLine(numberOfLine) <= number) {
+            while (checkBoard.countNumbersInLine(numberOfLine) <= number) {
 
                 columnesLoop:
                 for (int numberOfColumne = 0; numberOfColumne < 9; numberOfColumne++) {
-
-                    tryingLoop:
-                    for (int numberOfTry = 0; numberOfTry < 100; numberOfTry++) {
                         randomValue = random.nextInt(9);
                         while (randomValue < 1) {
                             randomValue = random.nextInt(9);
                         }
-                        isRepeated = checkBoard.checkBoardSetValue(numberOfColumne, numberOfLine, randomValue);
-                        if (!isRepeated) {
-                            break tryingLoop;
-                        } else {
-                            outerLoop:
-                            for (int i = 1; i <= 9; i++) {
-                                isRepeated = checkBoard.checkBoardSetValue(numberOfColumne, numberOfLine, i);
-                                if (!isRepeated) {
-                                    break tryingLoop;
-                                }
+                        for (int i=0;i<100;i++){
+                            isRepeated = checkBoard.checkBoardSetValue(numberOfColumne, numberOfLine, randomValue);
+                            if(isRepeated){
+                                i++;
+                            } else{
+                                break;
                             }
                         }
-
+                        if(isRepeated){
+                            for(int i=1;i<=9;i++){
+                                isRepeated = checkBoard.checkBoardSetValue(numberOfColumne, numberOfLine, i);
+                                if(!isRepeated){
+                                    break;
+                                }
+                        }
+                        if (!isRepeated) {
+                            System.out.println("y " + numberOfLine + " x " + numberOfColumne + " value " + randomValue + " numbersInLine: " + checkBoard.countNumbersInLine(numberOfLine)+" isreapeated "+isRepeated);
+                            break ;
+                        }
                     }
                     if (isRepeated) {
                         counter++;
-                        System.out.println("y " + numberOfLine + " x " + numberOfColumne + "counter " + counter + " linia " + numberOfLine + " secondcounter " + secondCounter + " value " + randomValue + " numbersInLine: " + checkBoard.checkLine(numberOfLine));
+                       System.out.println("y " + numberOfLine + " x " + numberOfColumne + "counter " + counter  + " secondcounter " + secondCounter +" value " + randomValue + " numbersInLine: " + checkBoard.countNumbersInLine(numberOfLine));
                     }
-                    if (checkBoard.checkLine(numberOfLine) == number) {
+                    if (checkBoard.countNumbersInLine(numberOfLine) == number) {
                         break levelsLoop;
                     }
-                    if (counter > 500) {
+                }
+
+                if (counter > 100) {
+                    for (int b = 0; b < 9; b++) {
+                        checkBoard.setValue(b, numberOfLine, -1);
+                    }
+                    counter = 0;
+                    secondCounter++;
+                }
+               if (secondCounter == 100 ) {
                         for (int b = 0; b < 9; b++) {
                             checkBoard.setValue(b, numberOfLine, -1);
                         }
-                        counter = 0;
-                        secondCounter++;
-                    }
-                    if (secondCounter > 500) {
                         if (numberOfLine > 0) {
-                            numberOfLine--;
+                            numberOfLine = numberOfLine - 1;
                             for (int b = 0; b < 9; b++) {
                                 checkBoard.setValue(b, numberOfLine, -1);
                             }
+                            if (numberOfLine >= 1) {
+                                numberOfLine = numberOfLine - 1;
+                                for (int b = 0; b < 9; b++) {
+                                    checkBoard.setValue(b, numberOfLine, -1);
+                                }
+                            }
                         }
-                        counter = 0;
-                        secondCounter = 0;
+                        secondCounter++;
+                } else if (secondCounter == 150) {
+                    for (int i=0;i<9;i++) {
+                        for (int b = 0; b < 9; b++) {
+                            checkBoard.setValue(b, i, -1);
+                        }
                     }
-                   /* if (secondCounter > 2000) {
-                        break linesloop;
-                    }*/
-
-                }
+                    numberOfLine=0;
+                    secondCounter=0;
                 }
             }
+
         }
+        System.out.println("wait operation is almost finished");
     }
+}
+
+
+
+
+
 
 
 
