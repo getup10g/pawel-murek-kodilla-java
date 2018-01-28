@@ -14,10 +14,9 @@ public class Item {
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
-    private List<Invoice> invoiceList = new ArrayList<>();
+    private Invoice invoice;
 
-    public Item( Product product, BigDecimal price, int quantity, BigDecimal value) {
-        this.product = product;
+    public Item(BigDecimal price, int quantity, BigDecimal value) {
         this.price = price;
         this.quantity = quantity;
         this.value = value;
@@ -55,12 +54,12 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name="INVOICE_ID")
-    public List<Invoice> getInvoiceList() {
-        return invoiceList;
+    public Invoice getInvoice() {
+        return invoice;
     }
 
-    public void setInvoiceList(List<Invoice> invoiceList) {
-        this.invoiceList = invoiceList;
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 
     public void setProduct(Product product) {

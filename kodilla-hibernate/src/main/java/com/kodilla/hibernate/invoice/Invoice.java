@@ -32,7 +32,7 @@ public class Invoice {
     @Column(name = "INVOICE_ITEMS")
     @OneToMany(
             targetEntity = Item.class,
-            mappedBy = "invoiceList",
+            mappedBy = "invoice",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
