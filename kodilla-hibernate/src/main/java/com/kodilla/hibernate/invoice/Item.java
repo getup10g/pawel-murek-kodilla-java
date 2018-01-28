@@ -30,9 +30,7 @@ public class Item {
         return id;
     }
 
-    @NotNull
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @Column(name = "PRODUCT")
     public Product getProduct() {
         return product;
     }
